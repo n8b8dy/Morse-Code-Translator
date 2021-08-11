@@ -4,7 +4,7 @@ const MORSE = ['-----', '.----', '..---', '...--', '....-', '.....', '-....', '-
 
 function toMorse(text) {
 	return text.toLowerCase().replace(/\s+/g, ' ').split(' ').map(word => word.split('').map(x => {
-    if (!CHARS.includes(x)) { return; }
+    		if (!CHARS.includes(x)) { return; }
 		
 		return MORSE[CHARS.indexOf(x)];
 	}).join(' ')).join(' / ').trim();
@@ -12,7 +12,7 @@ function toMorse(text) {
 
 function fromMorse(code) {
 	return code.replace(/[^-.\s\|\\]\//g, '').replace(/\s+/, ' ').split('/').map(word => word.split(' ').map(x => {
-    if (!MORSE.includes(x)) { return; }
+    		if (!MORSE.includes(x)) { return; }
 		
 		return CHARS[MORSE.indexOf(x)];
 	}).join('')).join(' ').toUpperCase();
